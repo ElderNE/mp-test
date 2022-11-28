@@ -1,0 +1,38 @@
+.LocationForm-select {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 5px;
+    position: relative;
+}
+
+.LocationForm-select select {
+    appearance: none;
+    padding-left: 30px;
+    margin-left: 10px;
+    width: 220px;
+    height: 30px;
+    font-size: 16px;
+    border: #D3D3D3 2px solid;
+    background: none;
+}
+
+.LocationForm-select label {
+    width: 62px;
+}
+
+.LocationForm-icon {
+    position: absolute;
+    left: 83px;
+    top: 3px;
+    z-index: -1;
+}
+
+.LocationForm-icon2 {
+    position: absolute;
+    top: 3px;
+    left: 270px;
+    z-index: -1;
+}

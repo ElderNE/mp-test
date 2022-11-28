@@ -1,0 +1,22 @@
+.LocationForm-prompt {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: calc(100% - 5px);
+    position: relative;
+}
+
+.LocationForm-prompt > input {
+    width: 100%;
+    height: 30px;
+    margin-left: 10px;
+    border: #D3D3D3 2px solid;
+    padding-left: 30px;
+}
+
+.LocationForm-icon1 {
+    position: absolute;
+    top: 6px;
+    left: 99px;
+}

@@ -1,0 +1,50 @@
+.LocationForm {
+    max-width: 1182px;
+    min-height: 250px;
+    padding: 15px;
+    margin: 5px;
+    border: #D3D3D3 2px solid;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+
+.LocationForm:hover, .LocationForm:active  {
+    border: #4952B5 2px solid;
+}
+
+.LocationForm-element {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.LocationForm-serverlist {
+    padding-left: 30px;
+    margin-left: 10px;
+    width: 186px;
+    height: 30px;
+    font-size: 16px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.LocationForm-icon3 {
+    position: absolute;
+    top: 5px;
+    left: 77px;
+}
+
+.LocationForm-icon__color {
+    color: #F24726;
+}

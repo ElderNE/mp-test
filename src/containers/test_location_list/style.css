@@ -1,0 +1,41 @@
+.TestLocationsList {
+    max-width: 1182px;
+    margin: 0 auto;
+}
+
+.TestLocationsList_button {
+  width: 280px;
+  height: 40px;
+  border: #2E9BF0 2px solid;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #2E9BF0;
+  margin: 5px 5px 5px auto;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.TestLocationsList_button-gray {
+  width: 280px;
+  height: 40px;
+  border: #D3D3D3 2px solid;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #D3D3D3;
+  margin: 5px 5px 5px auto;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.TestLocationsList_span {
+  font-size: 32px;
+  font-weight: 700;
+}
