@@ -9,13 +9,13 @@ const TestLocationsList = observer(function TestLocationsList() {
   
   //получение данных
   const store = useContext(storeContext);
-  let locationsList = mobx.toJS(store).data_out;
+  let locationsList = store.data_out;
   
   //добавление новой локации (после загрузки данных)
   function addLocation(){
     if(store.isLoaded)
-      store.addDataOut({locationID: mobx.toJS(store).locations[0].locationID, 
-                        envID: mobx.toJS(store).envs[0].envID, 
+      store.addDataOut({locationID: store.locations[0].locationID, 
+                        envID: store.envs[0].envID, 
                         hint: ""});
   }
 

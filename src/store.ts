@@ -2,6 +2,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 import * as mobx from 'mobx';
 import { createContext } from "react";
 import sample from "./data.json";
+import { checkEnv } from './utils/check_env';
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout((resolve), ms));
@@ -60,7 +61,7 @@ export class Store {
   };
   
   //смена значений в форме, form_index - номер формы, id_name - тип инпута
-  //text_hint, id_type значения(приходят всегда не пустые)
+  //text_hint, id_type значения
   setDataOut = ({text_hint = "", form_index, id_name, id_type = 0}:PropsSetDataOut) => {
     runInAction(() => {
       this.data_out.forEach((index: any, i: number) => {
@@ -71,6 +72,7 @@ export class Store {
               break;
             case 'locationID':
               this.data_out[i].locationID = id_type;
+              this.data_out[i].envID = checkEnv(id_type,this.envs,this.servers)[0].envID;
               break;
             case 'envID':
               this.data_out[i].envID = id_type;

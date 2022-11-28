@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { storeContext } from "../../store";
-import * as mobx from 'mobx';
 import { observer } from "mobx-react-lite";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVial, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import LocationFormOption from '../../components/forms/location-form-option';
 import { checkServer } from '../../utils/check_server';
+import { checkEnv } from '../../utils/check_env';
 import LocationFormServers from '../../components/forms/location-form-servers';
 import LocationFormInput from '../../components/forms/location-form-input';
 import './style.css';
@@ -18,11 +18,16 @@ const LocationForm:React.FC<LocationFormProps> = observer(function LocationForm(
 
   const store = useContext(storeContext);
 
+  //формируем список env в зависимости от locationID
+  let env: Array<{name:string, envID: number}> = checkEnv(store.data_out[form_index].locationID,
+                                                          store.envs,
+                                                          store.servers);
+
   //формируем список серверов
   let list: string = checkServer([store.data_out[form_index].locationID,
                                   store.data_out[form_index].envID], 
-                                  mobx.toJS(store).servers);
-  
+                                  store.servers);
+
   //удаление локации
   function deleteLocation(form_index: number) {
     store.delDataOut(form_index);
@@ -34,12 +39,12 @@ const LocationForm:React.FC<LocationFormProps> = observer(function LocationForm(
               <h2 onClick={() => deleteLocation(form_index)}><FontAwesomeIcon icon={faTrashCan} className="LocationForm-icon__color"/></h2>
             </div>
             <div className='LocationForm-element'>
-              <LocationFormOption options={mobx.toJS(store).locations} 
+              <LocationFormOption options={store.locations} 
                                   id_name={"locationID"} 
                                   text={"Локация"}
                                   val={store.data_out[form_index].locationID}
                                   form_index={form_index}/>   
-              <LocationFormOption options={mobx.toJS(store).envs} 
+              <LocationFormOption options={env} 
                                   id_name={"envID"} 
                                   text={"Среда"}
                                   val={store.data_out[form_index].envID}
